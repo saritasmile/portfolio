@@ -1,12 +1,12 @@
 // All editable content — swap placeholders for real info before shipping.
 
 export const personal = {
-  name:        'Specimen 001',
-  location:    'Greater Boston · remote-friendly',
-  coordinates: 'Lat 41.28° N · Lon 70.10° W',
-  studio:      'Applied Research Studio',
-  email:       'studio@applied-research.press',
-  linkedin:    'linkedin.com/in/applied-research',
+  name:        'Sara Bielagus',
+  location:    'Boston · remote-friendly',
+  coordinates: 'Lat 42.36° N · Lon 71.06° W',
+  studio:      'Applied Research & Design',
+  email:       'sara.bielagus@gmail.com',
+  linkedin:    'https://www.linkedin.com/in/sarabielagus/',
   year:        'MMXXVI',
 };
 
@@ -19,7 +19,7 @@ export const hero = {
   headlineLine4: 'came clear.',
   subhead:     'A principal applied researcher working at the join of aviation, healthcare, and cybersecurity — taking the unexposed problem, holding it to light, and waiting for the image to develop.',
   ctaLabel:    '◌ View the catalogue',
-  masthead:    'Specimen 001 · Exposed VI · MMXXVI',
+  masthead:    'Sara Bielagus · Exposed VI · MMXXVI',
   portraitCaption: {
     line1: 'Subject · self',
     line2: 'exposed 14 min · spring tide',
