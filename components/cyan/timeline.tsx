@@ -55,7 +55,7 @@ export function CyanTimeline({ t }: { t: Tokens }) {
   const [open, setOpen] = useState(0);
   return (
     <section id="timeline" style={{ padding: '110px 56px', borderBottom: `1px solid ${t.bluePale}33`, position: 'relative' }}>
-      <CyanLabel t={t} num="03" label="Field notes — a working catalogue" />
+      <CyanLabel t={t} num="03" label="Timeline — professional experience" />
 
       <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 64 }}>
         <div style={{ position: 'sticky', top: 40, alignSelf: 'start' }}>

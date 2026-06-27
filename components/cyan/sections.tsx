@@ -6,13 +6,16 @@ const p = (n: number) => Math.round(n * 1e4) / 1e4;
 import { Tokens } from '@/lib/tokens';
 import { f } from '@/lib/fonts';
 import { personal, hero as heroContent, about } from '@/lib/content';
-import { CyanLabel, CyanoPortrait, Scallop } from '@/components/cyan/marks';
+import Image from 'next/image';
+import { CyanLabel, Scallop } from '@/components/cyan/marks';
 import { Flock } from '@/components/cyan/flock';
+import { Cyanotype101 } from '@/components/cyan/cyanotype101';
 
 // ── Hero ──────────────────────────────────────────────────────────────────
 
 export function CyanHero({ t, onUnlock }: { t: Tokens; onUnlock: () => void }) {
   const birdInk = '#A8C3DD';
+  const [show101, setShow101] = useState(false);
   return (
     <section style={{
       position: 'relative',
@@ -20,6 +23,7 @@ export function CyanHero({ t, onUnlock }: { t: Tokens; onUnlock: () => void }) {
       background: `linear-gradient(to bottom, ${t.blueMid} 0%, ${t.blueDeep} 65%, ${t.blueDeep} 100%)`,
       overflow: 'hidden',
     }}>
+      {show101 && <Cyanotype101 t={t} onClose={() => setShow101(false)} />}
       <div style={{ position: 'absolute', inset: 0, opacity: 0.85, zIndex: 1 }}>
         <Flock ink={birdInk} width={1600} height={760} />
       </div>
@@ -38,6 +42,18 @@ export function CyanHero({ t, onUnlock }: { t: Tokens; onUnlock: () => void }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, background: t.blueDeep, padding: '8px 14px', border: `1px solid ${t.bluePale}55` }}>
           <span style={{ color: t.accent }}>☼</span>
           <span style={{ fontWeight: 500 }}>{heroContent.masthead}</span>
+          <button
+            onClick={() => setShow101(true)}
+            aria-label="On the cyanotype — what is this?"
+            style={{
+              background: 'transparent', border: `1px solid ${t.bluePale}66`,
+              color: t.bluePale, cursor: 'pointer',
+              fontFamily: f.ibmPlexMono, fontSize: 10, letterSpacing: '0.1em',
+              padding: '2px 7px', lineHeight: 1,
+            }}
+          >
+            ?
+          </button>
         </div>
         <nav style={{ display: 'flex', gap: 4, background: t.blueDeep, padding: '6px 8px', border: `1px solid ${t.bluePale}55` }}>
           {heroContent.nav.map((item) => (
@@ -68,8 +84,15 @@ export function CyanHero({ t, onUnlock }: { t: Tokens; onUnlock: () => void }) {
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 22 }}>
           <div style={{ position: 'relative' }}>
-            <CyanoPortrait ink={t.blueDeep} paper={t.cream} size={240} />
-            <div style={{ position: 'absolute', bottom: -34, right: 0, textAlign: 'right', fontFamily: f.ibmPlexMono, fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: t.cream, lineHeight: 1.6 }}>
+            {/* swap src to /images/original.jpg to see raw photo */}
+            <Image
+              src="/images/00-cyanotype.png"
+              alt="Sara Bielagus"
+              width={320}
+              height={400}
+              style={{ display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
+            />
+            <div style={{ marginTop: 10, textAlign: 'right', fontFamily: f.ibmPlexMono, fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: t.cream, lineHeight: 1.6 }}>
               <div>{heroContent.portraitCaption.line1}</div>
               <div style={{ fontFamily: f.instrumentSerif, fontStyle: 'italic', textTransform: 'none', letterSpacing: '0.02em', fontSize: 13, color: t.bluePale }}>
                 {heroContent.portraitCaption.line2}
@@ -108,7 +131,7 @@ function CyanBlock({ t, title, children }: { t: Tokens; title: string; children:
 export function CyanAbout({ t }: { t: Tokens }) {
   return (
     <section id="about" style={{ padding: '110px 56px', position: 'relative', borderBottom: `1px solid ${t.bluePale}33` }}>
-      <CyanLabel t={t} num="02" label="On the practice" />
+      <CyanLabel t={t} num="02" label="My Approach" />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, marginTop: 64 }}>
         <div>
           <div style={{ fontFamily: f.newsreader, fontSize: 30, lineHeight: 1.25, color: t.cream, fontWeight: 300, letterSpacing: '-0.01em' }}>

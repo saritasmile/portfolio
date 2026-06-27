@@ -3,16 +3,16 @@ import { Tokens } from '@/lib/tokens';
 import { f } from '@/lib/fonts';
 import { CyanLabel } from '@/components/cyan/marks';
 
-export function StudyHeader({ t }: { t: Tokens }) {
+export function StudyHeader({ t, code, domain, year }: { t: Tokens; code: string; domain: string; year: string }) {
   return (
     <header style={{ padding: '32px 56px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: f.ibmPlexMono, fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: t.bluePale }}>
       <Link href="/#work" style={{ color: t.bluePale, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 12 }}>
         ← Back to Catalogue
       </Link>
       <div style={{ display: 'flex', gap: 24 }}>
-        <span>MTR-012</span>
-        <span style={{ color: t.accent }}>Aviation</span>
-        <span>Exposed · 2025</span>
+        <span>{code}</span>
+        <span style={{ color: t.accent }}>{domain}</span>
+        <span>Exposed · {year}</span>
       </div>
     </header>
   );

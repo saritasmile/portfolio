@@ -14,7 +14,7 @@ export const metadata = {
 export default function CaseStudyMTR012() {
   return (
     <div style={{ minHeight: '100vh', background: t.blueDeep, color: t.cream, position: 'relative' }}>
-      <StudyHeader t={t} />
+      <StudyHeader t={t} code="MTR-012" domain="Aviation" year="2025" />
       <StudyCover  t={t} />
 
       <StudySection t={t} num="02" label="Context">
@@ -45,7 +45,7 @@ export default function CaseStudyMTR012() {
       <SlidesSection t={t} />
       <Impact      t={t} />
       <Reflection  t={t} />
-      <StudyColophon t={t} />
+      <StudyColophon t={t} code="MTR-012" plate="Plate 01" />
     </div>
   );
 }

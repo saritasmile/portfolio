@@ -163,11 +163,11 @@ export function Reflection({ t }: { t: Tokens }) {
 
 // ── Colophon ──────────────────────────────────────────────────────────────
 
-export function StudyColophon({ t }: { t: Tokens }) {
+export function StudyColophon({ t, code, plate }: { t: Tokens; code: string; plate: string }) {
   return (
     <footer style={{ padding: '60px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, fontFamily: f.ibmPlexMono, fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: t.bluePale, borderTop: `1px solid ${t.bluePale}33` }}>
       <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap' }}>
-        <span>MTR-012 · Plate 01</span>
+        <span>{code} · {plate}</span>
         <span>Cyanotype on cotton paper · in the browser</span>
         <Link href="/#work" style={{ color: t.cream, textDecoration: 'none' }}>← Catalogue</Link>
       </div>

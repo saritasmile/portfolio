@@ -193,8 +193,20 @@ function GateModal({ t, mode, setMode }: { t: Tokens; mode: Exclude<Mode, 'close
 
 // ── Main gate section ──────────────────────────────────────────────────────
 
+const SESSION_KEY = 'catalogue-unlocked';
+
 export function CyanWorkGate({ t }: { t: Tokens }) {
   const [mode, setMode] = useState<Mode>('closed');
+
+  useEffect(() => {
+    if (sessionStorage.getItem(SESSION_KEY) === '1') setMode('open');
+  }, []);
+
+  const handleSetMode = (m: Mode) => {
+    if (m === 'open') sessionStorage.setItem(SESSION_KEY, '1');
+    if (m === 'closed') sessionStorage.removeItem(SESSION_KEY);
+    setMode(m);
+  };
 
   return (
     <section id="work" style={{ padding: '60px 56px 110px', borderBottom: `1px solid ${t.bluePale}33`, position: 'relative' }}>
@@ -209,7 +221,7 @@ export function CyanWorkGate({ t }: { t: Tokens }) {
             Most of my work lives under NDA — aviation tools, clinical workflows, defense programs. Enter the passphrase from our conversation to view exposures, or request access below.
           </p>
           <button
-            onClick={() => setMode('gate')}
+            onClick={() => handleSetMode('gate')}
             style={{
               marginTop: 36, fontFamily: f.ibmPlexMono, fontSize: 11,
               letterSpacing: '0.22em', textTransform: 'uppercase',
@@ -238,13 +250,13 @@ export function CyanWorkGate({ t }: { t: Tokens }) {
       </div>
 
       {mode !== 'closed' && mode !== 'open' && (
-        <GateModal t={t} mode={mode as Exclude<Mode, 'closed' | 'open'>} setMode={setMode} />
+        <GateModal t={t} mode={mode as Exclude<Mode, 'closed' | 'open'>} setMode={handleSetMode} />
       )}
 
       {mode === 'open' && (
         <div style={{ position: 'fixed', bottom: 24, right: 24, background: t.cream, color: t.blueDeep, padding: '12px 18px', fontFamily: f.ibmPlexMono, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', display: 'flex', gap: 14, alignItems: 'center', zIndex: 40 }}>
           <span style={{ color: t.accent }}>☼</span> Catalogue exposed
-          <button onClick={() => setMode('closed')} style={{ background: 'transparent', border: 'none', color: t.blueDeep, cursor: 'pointer', fontFamily: 'inherit', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', borderLeft: `1px solid ${t.creamDim}`, paddingLeft: 14 }}>
+          <button onClick={() => handleSetMode('closed')} style={{ background: 'transparent', border: 'none', color: t.blueDeep, cursor: 'pointer', fontFamily: 'inherit', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', borderLeft: `1px solid ${t.creamDim}`, paddingLeft: 14 }}>
             Re-cover
           </button>
         </div>

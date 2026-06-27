@@ -19,15 +19,15 @@ export const hero = {
   headlineLine4: 'came clear.',
   subhead:     'A principal applied researcher working at the join of aviation, healthcare, and cybersecurity — taking the unexposed problem, holding it to light, and waiting for the image to develop.',
   ctaLabel:    '◌ View the catalogue',
-  masthead:    'Sara Bielagus · Exposed VI · MMXXVI',
+  masthead:    'Sara Bielagus · Cyanotype Inspired · MMXXVI',
   portraitCaption: {
     line1: 'Subject · self',
     line2: 'exposed 14 min · spring tide',
   },
   nav: [
-    { label: 'About',       href: '#about' },
-    { label: 'Catalogue',   href: '#work' },
-    { label: 'Field notes', href: '#timeline' },
+    { label: 'Projects',    href: '#work' },
+    { label: 'Timeline',    href: '#timeline' },
+    { label: 'My Approach', href: '#about' },
     { label: 'Contact',     href: '#contact' },
   ],
 };
@@ -122,9 +122,9 @@ export type Work = {
 
 export const works: Work[] = [
   { code: 'MTR-012', client: 'MITRE · FAA',        title: 'Arrival-sequencing console for high-density airspace', tag: '2025', domain: 'Aviation',   sil: 'curl',     href: '/case-study/mtr-012' },
-  { code: 'MOT-007', client: 'Motional',            title: 'Remote vehicle assistance operator suite',              tag: '2024', domain: 'Autonomy',   sil: 'rope' },
-  { code: 'PHI-019', client: 'Philips Radiology',   title: 'Remote reading command center',                        tag: '2022', domain: 'Healthcare', sil: 'scallop' },
-  { code: 'DRP-004', client: 'Draper · Kessel Run', title: 'Human-AI teaming for air mobility planning',           tag: '2018', domain: 'Defense',    sil: 'eelgrass' },
+  { code: 'MOT-007', client: 'Motional',            title: 'Remote vehicle assistance operator suite',              tag: '2024', domain: 'Autonomy',   sil: 'rope',     href: '/case-study/mot-007' },
+  { code: 'PHI-019', client: 'Philips Radiology',   title: 'Remote reading command center',                        tag: '2022', domain: 'Healthcare', sil: 'scallop',  href: '/case-study/phi-019' },
+  { code: 'DRP-004', client: 'Draper · Kessel Run', title: 'Human-AI teaming for air mobility planning',           tag: '2018', domain: 'Defense',    sil: 'eelgrass', href: '/case-study/drp-004' },
 ];
 
 export const PASSPHRASE = 'eelgrass';
