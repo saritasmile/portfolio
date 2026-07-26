@@ -325,6 +325,8 @@ export function CyanContact({ t }: { t: Tokens }) {
 
 // ── Colophon ──────────────────────────────────────────────────────────────
 
+const SHOW_KONAMI_HINT = false;
+
 export function CyanColophon({ t, onHint }: { t: Tokens; onHint: () => void }) {
   return (
     <footer style={{ padding: '40px 56px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, fontFamily: f.ibmPlexMono, fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: t.bluePale }}>
@@ -333,13 +335,15 @@ export function CyanColophon({ t, onHint }: { t: Tokens; onHint: () => void }) {
         <span>Cyanotype on cotton paper · in the browser</span>
         <span style={{ color: t.cream }}>{personal.coordinates}</span>
       </div>
-      <button
-        onClick={onHint}
-        style={{ background: 'transparent', border: 'none', color: t.bluePale, fontFamily: 'inherit', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8 }}
-      >
-        <span style={{ color: t.accent }}>▲▲▼▼◀▶◀▶BA</span>
-        <span style={{ opacity: 0.6 }}>· try it</span>
-      </button>
+      {SHOW_KONAMI_HINT && (
+        <button
+          onClick={onHint}
+          style={{ background: 'transparent', border: 'none', color: t.bluePale, fontFamily: 'inherit', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8 }}
+        >
+          <span style={{ color: t.accent }}>▲▲▼▼◀▶◀▶BA</span>
+          <span style={{ opacity: 0.6 }}>· try it</span>
+        </button>
+      )}
     </footer>
   );
 }
