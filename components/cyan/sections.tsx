@@ -161,8 +161,12 @@ function FieldLabel({ t, mt, children }: { t: Tokens; mt?: boolean; children: Re
   );
 }
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqerwqgw';
+
 export function CyanContact({ t }: { t: Tokens }) {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', note: '' });
   const inputStyle: React.CSSProperties = {
     width: '100%', background: 'transparent', border: 'none',
@@ -270,7 +274,24 @@ export function CyanContact({ t }: { t: Tokens }) {
             </div>
           </div>
 
-          <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column' }}>
+          <form onSubmit={async (e) => {
+            e.preventDefault();
+            setSending(true);
+            setError(false);
+            try {
+              const res = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({ name: form.name, email: form.email, message: form.note }),
+              });
+              if (!res.ok) throw new Error('Formspree request failed');
+              setSent(true);
+            } catch {
+              setError(true);
+            } finally {
+              setSending(false);
+            }
+          }} style={{ display: 'flex', flexDirection: 'column' }}>
             {!sent ? (
               <>
                 <FieldLabel t={t}>Name</FieldLabel>
@@ -279,9 +300,14 @@ export function CyanContact({ t }: { t: Tokens }) {
                 <input type="email" style={inputStyle} value={form.email} onChange={update('email')} />
                 <FieldLabel t={t} mt>Subject</FieldLabel>
                 <textarea rows={4} style={{ ...inputStyle, resize: 'vertical' }} value={form.note} onChange={update('note')} />
-                <button type="submit" style={{ marginTop: 36, alignSelf: 'flex-start', fontFamily: f.ibmPlexMono, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', padding: '16px 26px', background: t.cream, color: t.blueDeep, border: 'none', cursor: 'pointer' }}>
-                  Lay in the sun →
+                <button type="submit" disabled={sending} style={{ marginTop: 36, alignSelf: 'flex-start', fontFamily: f.ibmPlexMono, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', padding: '16px 26px', background: t.cream, color: t.blueDeep, border: 'none', cursor: sending ? 'default' : 'pointer', opacity: sending ? 0.6 : 1 }}>
+                  {sending ? 'Sending…' : 'Send →'}
                 </button>
+                {error && (
+                  <div style={{ marginTop: 16, fontFamily: f.ibmPlexMono, fontSize: 11, letterSpacing: '0.05em', color: t.accent }}>
+                    Something went wrong — mind emailing {personal.email} directly instead?
+                  </div>
+                )}
               </>
             ) : (
               <div style={{ padding: '48px 0', fontFamily: f.newsreader, fontSize: 30, color: t.cream, lineHeight: 1.3 }}>
