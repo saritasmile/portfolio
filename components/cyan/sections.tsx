@@ -65,13 +65,13 @@ export function CyanHero({ t, onUnlock }: { t: Tokens; onUnlock: () => void }) {
       </div>
 
       {/* Main grid */}
-      <div style={{ position: 'relative', zIndex: 3, display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 64, alignItems: 'end' }}>
+      <div style={{ position: 'relative', zIndex: 3, display: 'grid', gridTemplateColumns: '1.7fr 1fr', gap: 64, alignItems: 'end' }}>
         <div>
           <div style={{ fontFamily: f.ibmPlexMono, fontSize: 11, letterSpacing: '0.24em', textTransform: 'uppercase', color: t.accent, marginBottom: 28, display: 'flex', alignItems: 'center', gap: 12 }}>
             <span style={{ width: 22, height: 1, background: t.accent, display: 'inline-block' }} />
             {heroContent.eyebrow}
           </div>
-          <h1 style={{ fontFamily: f.newsreader, fontWeight: 300, fontSize: 'clamp(60px, 7.4vw, 116px)', lineHeight: 0.98, letterSpacing: '-0.025em', margin: 0, color: t.cream }}>
+          <h1 style={{ fontFamily: f.newsreader, fontWeight: 300, fontSize: 'clamp(44px, 5.4vw, 84px)', lineHeight: 1.05, letterSpacing: '-0.02em', margin: 0, color: t.cream }}>
             {heroContent.headlineLine1}<br />
             {heroContent.headlineLine2}<br />
             {heroContent.headlineLine3}<em style={{ fontFamily: f.instrumentSerif, fontStyle: 'italic', color: t.accent, fontWeight: 400 }}>{heroContent.accentWord}</em><br />

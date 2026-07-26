@@ -12,12 +12,12 @@ export const personal = {
 
 export const hero = {
   eyebrow:     'Applied Research & Strategic Design',
-  headlineLine1: 'Fifteen years',
-  headlineLine2: 'laid in the sun',
-  headlineLine3: 'until the ',
-  accentWord:  'shape',
-  headlineLine4: 'came clear.',
-  subhead:     'A principal applied researcher working at the join of aviation, healthcare, and cybersecurity — taking the unexposed problem, holding it to light, and waiting for the image to develop.',
+  headlineLine1: 'I expose',
+  headlineLine2: 'what the problem',
+  headlineLine3: '',
+  accentWord:  'actually',
+  headlineLine4: 'is, then bring the answer into the light.',
+  subhead:     'A principal-level researcher working across product, design, and strategy — fifteen years at the join of aviation, healthcare, and cybersecurity, turning high-stakes ambiguity into decisions teams can act on, from the engineering floor to the VP suite.',
   ctaLabel:    '◌ View the catalogue',
   masthead:    'Sara Bielagus · Cyanotype Inspired · MMXXVI',
   portraitCaption: {
@@ -39,19 +39,19 @@ export const about = {
   blocks: [
     {
       title: 'Method',
-      body:  'Each zero-to-one is a contact print. The first exposure is muddy — too long here, too short there. Each test print costs less than the last. I plan the test prints, not the finished image.',
+      body:  'I work in fast, cheap iterations. The first pass is rough on purpose; each one after costs less and gets sharper. I plan the test prints, not the finished image — so the team learns what\'s true before it commits real money.',
     },
     {
       title: 'Domains exposed',
-      body:  'Flight decks and ATC tools. Remote-vehicle assistance. Radiology command centers. Patient navigation. Human–AI teaming for Kessel Run and DARPA. Oral-health AI portfolios.',
+      body:  'Remote support, dashboarding, and decision-making for command centers. Remote-vehicle assistance. Radiology command centers. Patient navigation. Human–AI teaming for Kessel Run and DARPA. Oral-health AI portfolios.',
     },
     {
       title: 'What I bring',
-      body:  'Human factors. Mixed-method research. Service design across long, knotted journeys. A bias toward prototypes that survive first contact with reality.',
+      body:  'Product, design, and research in one seat. Mixed-method work kept fast and applied — translated for the engineers, PMs, and VPs who have to act on it. A bias toward prototypes that survive first contact with reality.',
     },
     {
       title: 'Off the bench',
-      body:  'A small darkroom of cyanotype trials. A shelf of restored consoles — a Famicom with fresh caps, a IIgs that boots cleanly, a Saturn waiting on a battery.',
+      body:  'Outside work: a small darkroom of cyanotype experiments, and a shelf of restored handheld consoles — Game Boys, Game Boy Colors, PS Vitas, and PSPs. Swapping faceplates, custom firmware, games, backgrounds, and themes, and reviving the most broken of the bunch.',
     },
   ],
 };
@@ -71,16 +71,16 @@ export const timeline: TimelineEntry[] = [
     state:   'Latest exposure',
     company: 'MITRE',
     role:    'Lead Human Factors Engineer',
-    detail:  'Aviation, Cybersecurity, Analytics · Protovibing CoP Lead',
-    outcome: "Running a prototyping community of practice across mission areas; pulling fast proofs for sponsors who can't afford a bad image.",
+    detail:  'Large-scale transportation platforms · whole-system HSI · AI adoption measurement',
+    outcome: "I lead human-systems work on a ground-up transportation platform — designing for a whole building of people in different jobs, and the scenarios, language, and iconography it takes to make it work together. I arrived part-time and grew the footprint to a full role, now building toward a team. When HSI drove the cybersecurity effort, we set the scale and scope of the first prototype and kept it at the PMO's level. Alongside it: AI-adoption measurement, prototyping-tool evaluation, and quick-turn work on public-facing aviation safety (ASIAS).",
   },
   {
     years:   '2023 — 2024',
     state:   'Print VI',
     company: 'Motional',
     role:    'Principal Product Researcher',
-    detail:  'Remote Vehicle Assistance & Fleet Management',
-    outcome: 'Shaped the operator-facing product for remote AV assistance from the first driven mile through public-road deployment.',
+    detail:  'Remote vehicle assistance · fleet management · rider-experience measurement',
+    outcome: 'I shaped the operator-facing product for remote AV assistance — turning a finnicky vector-drawing interface into point-and-click pathing, and readying the simulator for real use. My biggest bet was unassigned: with a rider-rated Uber partnership coming, I flagged we measured the car and computer but not the rider\'s experience — a gap that could sink launch. I built the measurement from scratch, scrappy at first (Forms, Slack, notes), then Qualtrics against drivelogs — 54 rider logs tied to car-and-computer behavior, engineering scoping a permanent, streamed version.',
   },
   {
     years:   '2020 — 2023',
